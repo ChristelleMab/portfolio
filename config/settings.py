@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9702yu-60qc%4&s&ofrx94q$=yhop&s6uwqu2!(b0imkrjqhwd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Sécurité - désactiver le mode debug en production
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = []
+# Hôtes autorisés
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Ajouter ici
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -73,6 +76,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+import os
+import dj_database_url
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -83,6 +88,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Configuration pour Heroku (PostgreSQL)
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -126,11 +135,15 @@ import os  # Ajouter en haut du fichier
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 # Fichiers statiques
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     # BASE_DIR / "static",
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Configuration de Whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Fichiers média
 MEDIA_URL = '/media/'
