@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media
+
+# Environnements virtuels
+venv/
+.env
+
+# Fichiers de l'éditeur
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Fichiers de migration spécifiques
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Fichiers statiques collectés
+staticfiles/
+/static/
+
+# Fichiers de configuration sensibles
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
