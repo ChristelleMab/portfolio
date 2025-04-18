@@ -1,0 +1,334 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}CV - Portfolio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cv-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="cv-header">
+    <div class="container">
+        <h2>Curriculum Vitae</h2>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <a href="{% url 'portfolio:cv_print' %}" target="_blank" class="btn" style="margin-right: 10px;">
+                <i class="fas fa-download"></i> Version PDF/Imprimable
+            </a>
+            <button onclick="printCVPrint();" class="btn" style="background-color: var(--secondary-color); border: none; cursor: pointer;">
+                <i class="fas fa-print"></i> Imprimer cette page
+            </button>
+            
+            <script>
+                function printCVPrint() {
+                    // Ouvre cv_print.html dans une nouvelle fenêtre
+                    var printWindow = window.open("{% url 'portfolio:cv_print' %}", "_blank");
+                    
+                    // Attendre que la page se charge et ensuite lancer l'impression
+                    printWindow.onload = function() {
+                        printWindow.print();
+                    };
+                }
+            </script>
+        </div>
+    </div>
+</section>
+
+<section id="cv-content">
+    <div class="container">
+        <div class="cv-container">
+            <!-- En-tête du CV -->
+            <div class="cv-header">
+                <h1 style="font-size: 2.2rem; margin-bottom: 10px; color: var(--secondary-color);">Christelle MABIKA</h1>
+                <h2 style="font-size: 1.3rem; font-weight: normal; margin-bottom: 15px; color: var(--primary-color);">Manager financière en reconversion Data Analyst</h2>
+                <div class="cv-contact-info" style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.9rem;">
+                    <span><i class="fas fa-envelope"></i> christell.mabika@gmail.com</span>
+                    <span><i class="fas fa-phone"></i> 06 20 76 94 24</span>
+                    <span><i class="fas fa-linkedin"></i> linkedin.com/in/christelle-mabika</span>
+                    <span><i class="fas fa-map-marker-alt"></i> 65 rue maurice berteaux 95870 Bezons</span>
+                </div>
+            </div>
+            
+            <!-- Profil -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Profil</h3>
+                <div class="cv-looking-for">
+                    <p><strong>En recherche d'alternance en Data Analysis</strong> pour combiner mon expertise financière avec ma formation en IA et Big Data.</p>
+                </div>
+                <p style="text-align: justify;">Forte de 10 ans d'expérience en cabinet d'expertise comptable, actuellement en reconversion vers l'analyse de données. Je combine une solide expertise en audit et comptabilité avec des compétences émergentes en traitement et analyse de données. Mon objectif est d'utiliser ma double compétence pour apporter une valeur ajoutée dans l'interprétation des données financières et l'optimisation des processus décisionnels.</p>
+            </div>
+            
+            <!-- Expérience professionnelle -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Expérience professionnelle</h3>
+                
+                <div class="cv-experience">
+                    <div class="cv-position">
+                        <h4>Collaboratrice comptable expérimenté</h4>
+                        <span class="cv-date">Février 2025 - Présent (3 mois)</span>
+                    </div>
+                    <div class="cv-company">AFECOM - Paris 19e | <em>Stage</em></div>
+                    <p><em>Expertise comptable et audit</em></p>
+                    <ul class="cv-duties">
+                        <li>Révision des comptes annuels</li>
+                        <li>Établissement des liasses fiscales</li>
+                        <li>Gestion des déclarations sociales et fiscales (salaires, impôts...)</li>
+                    </ul>
+                </div>
+                
+                <div class="cv-experience">
+                    <div class="cv-position">
+                        <h4>Manager Conseil Comptable, Fiscal & Financier</h4>
+                        <span class="cv-date">2022 - 2024 (2 ans)</span>
+                    </div>
+                    <div class="cv-company">Deloitte Touche Tohmatsu Congo</div>
+                    <p><em>Expertise comptable et audit</em></p>
+                    <ul class="cv-duties">
+                        <li>Accompagnement stratégique et optimisation des processus financiers</li>
+                        <li>Pilotage de missions pluridisciplinaires et coordination d'équipes</li>
+                        <li>Audit opérationnel, comptable et financiers</li>
+                    </ul>
+                </div>
+                
+                <div class="cv-experience">
+                    <div class="cv-position">
+                        <h4>Senior Conseil Comptable, Fiscal & Financier</h4>
+                        <span class="cv-date">2020 - 2022 (2 ans)</span>
+                    </div>
+                    <div class="cv-company">Advisory (Correspondant BDO)</div>
+                    <p><em>Cabinet d'audit et conseil en transformation</em></p>
+                    <ul class="cv-duties">
+                        <li>Réalisation de diagnostics fiscaux pour 12 clients du secteur industriel</li>
+                        <li>Missions d'audit et vérification de conformité réglementaire</li>
+                    </ul>
+                </div>
+                
+                <div class="cv-experience">
+                    <div class="cv-position">
+                        <h4>Superviseur Audit & Comptabilité</h4>
+                        <span class="cv-date">Avant 2020 (7 ans)</span>
+                    </div>
+                    <div class="cv-company">Horizons Conseils</div>
+                    <p><em>Expertise comptable et audit</em></p>
+                    <ul class="cv-duties">
+                        <li>Supervision des missions d'audit et de révision comptable</li>
+                        <li>Préparation des états financiers et déclarations fiscales</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Formation -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Formation</h3>
+                
+                <div class="cv-education">
+                    <div class="cv-position">
+                        <h4>MBA Big Data & Intelligence Artificielle</h4>
+                        <span class="cv-date">2025 - 2026</span>
+                    </div>
+                    <div class="cv-company">MBA ESG - Paris - Bac + 5 (formation classée SMBG). Groupe ESG</div>
+                    <p><strong>Principales matières :</strong> Management de Projet Data Science, Gouvernance Cloud (AWS, Azure), Business Intelligence & Dataviz (Tableau, Power BI), SQL avancé, Python pour la Data Science, Machine Learning.</p>
+                </div>
+                
+                <div class="cv-education">
+                    <div class="cv-position">
+                        <h4>MBA Management de l'Intelligence Artificielle</h4>
+                        <span class="cv-date">2024 - 2025</span>
+                    </div>
+                    <div class="cv-company">DeVinci Executive Education - Certification RNCP Niveau 7 (n°38590)</div>
+                    <p><strong>Principales matières :</strong> Construire et gérer un projet d’IA, Methodes Agiles, IA generatives, Digital factory, Python, Au coeur de la Data, CyberSécurité/CyberDéfense.</p>
+                </div>
+                
+                <div class="cv-education">
+                    <div class="cv-position">
+                        <h4>MBA Expert Contrôle de Gestion & Audit</h4>
+                        <span class="cv-date">2024 - 2025</span>
+                    </div>
+                    <div class="cv-company">ESG Finance via Studi - Titre RNCP Niveau 7</div>
+                    <p><strong>Principales matières :</strong> Audit financier/opérationnel, planification budgétaire, conception tableaux de bord et définitions d'indicateurs de performance, Analyses de risques.</p>
+                </div>
+                
+                <div class="cv-education">
+                    <div class="cv-position">
+                        <h4>Préparation aux épreuves du DSCG</h4>
+                        <span class="cv-date">En cours</span>
+                    </div>
+                    <div class="cv-company">En vue de l'obtention du Diplôme d'Expertise Comptable (DEC)</div>
+                    <p><strong>Unités d'enseignements :</strong></p>
+                    <ul class="cv-duties">
+                        <li><i class='bx bx-check-circle done'></i> UE4: Validée – UE2,6,7: Dispensées</li>
+                        <li><i class='bx bx-time in-progress'></i> UE1: Préparation – Session 2025</li>
+                        <li><i class='bx bx-calendar future'></i> UE3,5: Préparation – Session 2026</li>
+                    </ul>
+                </div>
+                
+                <div class="cv-education">
+                    <div class="cv-position">
+                        <h4>Master en Finance</h4>
+                        <span class="cv-date">2013</span>
+                    </div>
+                    <div class="cv-company">Spécialité Banque et Finance</div>
+                </div>
+            </div>
+            
+            <!-- Compétences -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Compétences</h3>
+                
+                <div class="two-columns">
+                    <div class="column">
+                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">Expertise confirmée</h4>
+                        <div class="cv-skills-container">
+                            <span class="cv-skill advanced">Expertise Comptable</span>
+                            <span class="cv-skill advanced">Audit Financier</span>
+                            <span class="cv-skill advanced">Contrôle de Gestion</span>
+                            <span class="cv-skill advanced">Analyse Financière</span>
+                            <span class="cv-skill advanced">Excel Avancé</span>
+                            <span class="cv-skill advanced">Fiscalité</span>
+                            <span class="cv-skill advanced">Management</span>
+                        </div>
+                        
+                        <h4 style="margin: 15px 0; color: var(--primary-color);">Compétences en développement</h4>
+                        <div class="cv-skills-container">
+                            <span class="cv-skill intermediate">Analyse de Données</span>
+                            <span class="cv-skill basic">Python (débutant)</span>
+                            <span class="cv-skill basic">SQL (opérationnel)</span>
+                            <span class="cv-skill basic">Power BI (opérationnel)</span>
+                            <span class="cv-skill intermediate">Visualisation de données</span>
+                            <span class="cv-skill basic">Machine Learning (bases)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">Niveau de maîtrise</h4>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Expertise Comptable & Audit</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Finance & Contrôle de Gestion</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Excel Avancé</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Analyse des Données</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Python / Pandas</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>SQL</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projet en cours -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Projet de recherche</h3>
+                <div style="background-color: var(--light-gray); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">Conformité des factures grâce à l'Intelligence Artificielle</h4>
+                    <p style="margin-bottom: 10px;">
+                        Développement d'un système automatisé d'analyse et de vérification de la conformité des factures basé sur des technologies d'intelligence artificielle.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 10px;">
+                        <div style="background-color: rgba(52, 152, 219, 0.1); padding: 8px; border-radius: 5px; flex: 1; min-width: 160px;">
+                            <strong>OCR</strong> (Tesseract/Google Vision)
+                        </div>
+                        <div style="background-color: rgba(52, 152, 219, 0.1); padding: 8px; border-radius: 5px; flex: 1; min-width: 160px;">
+                            <strong>NLP</strong> (spaCy/GPT-4/Claude 3.7 Sonnet)
+                        </div>
+                        <div style="background-color: rgba(52, 152, 219, 0.1); padding: 8px; border-radius: 5px; flex: 1; min-width: 160px;">
+                            <strong>Classification ML</strong> (Ramdom Forest/XG-Boost)
+                        </div>
+                        <div style="background-color: rgba(52, 152, 219, 0.1); padding: 8px; border-radius: 5px; flex: 1; min-width: 160px;">
+                            <strong>Détection anomalies</strong> (Isolation Forest)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Langues -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Langues</h3>
+                <div class="two-columns">
+                    <div class="column">
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Français</span>
+                                <span>Langue maternelle</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="column">
+                        <div style="margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                <span>Anglais</span>
+                                <span>Opérationnel</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Centres d'intérêt -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Centres d'intérêt</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span class="cv-skill">Auto-formation</span>
+                    <span class="cv-skill">Gestion d'etablissement : Co-fondatrice d'un ecole maternelle et elementaire</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

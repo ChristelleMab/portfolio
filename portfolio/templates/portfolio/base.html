@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio - Développeur & Expert Financier{% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <!-- Logo personnalisé -->
+                <div class="logo">
+                    <div class="logo-circle">
+                        <span>CM</span>
+                    </div>
+                </div>
+                <h1>Christelle MABIKA</h1>
+                <p class="tagline">Data Analyst & Expert Financier</p>
+                <div class="contact-info">
+                    <a href="mailto:christell.mabika@gmail.com">📧 christell.mabika@gmail.com</a>
+                    <a href="tel:+33620769424">📱 06 20 76 94 24</a>
+                    <a href="https://www.linkedin.com/in/christelle-mabika" target="_blank">🔗 linkedin.com/in/christelle-mabika</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Nouvelle navigation avec des icônes style flat design -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="{% url 'portfolio:index' %}"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="{% url 'portfolio:about' %}"><i class="fas fa-info-circle"></i> À propos</a></li>
+                <li><a href="{% url 'portfolio:experience' %}"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                <li><a href="{% url 'portfolio:education' %}"><i class="fas fa-graduation-cap"></i> Formation</a></li>
+                <li><a href="{% url 'portfolio:projects' %}"><i class="fas fa-project-diagram"></i> Projets</a></li>
+                <li><a href="{% url 'portfolio:cv' %}"><i class="fas fa-file-alt"></i> CV</a></li>
+                <li><a href="{% url 'portfolio:contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li class="search-container">
+                    <form action="{% url 'portfolio:search' %}" method="get">
+                        <input type="text" placeholder="Rechercher..." name="q">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Data Analyst & Expert Financier</p>
+                <p>Disponible pour une alternance en Data Analysis</p>
+            </div>
+            <div class="social-links">
+                <a href="tel:+33620769424" target="_blank"><i class="fas fa-mobile-alt"></i></a>
+                <a href="mailto:christell.mabika@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/christelle-mabika" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ChristelleMab" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; {% now "Y" %} Christelle MABIKA. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,206 @@
+/* Styles spécifiques à la page CV */
+.cv-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cv-header {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.cv-section {
+    margin-bottom: 30px;
+}
+
+.cv-section-title {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.cv-experience, .cv-education {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed var(--light-gray);
+}
+
+.cv-experience:last-child, .cv-education:last-child {
+    border-bottom: none;
+}
+
+.cv-position {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cv-position h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.cv-company {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.cv-date {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cv-duties {
+    padding-left: 18px;
+}
+
+.cv-duties li {
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: var(--light-gray);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.two-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.cv-skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.cv-skill {
+    background-color: var(--light-gray);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.cv-skill.advanced {
+    background-color: rgba(52, 152, 219, 0.2);
+    border: 1px solid var(--primary-color);
+}
+
+.cv-skill.intermediate {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.cv-skill.basic {
+    background-color: var(--light-gray);
+}
+
+.cv-looking-for {
+    background-color: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* Boutons de téléchargement et d'impression */
+.cv-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cv-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.cv-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.cv-btn-secondary {
+    background-color: var(--secondary-color);
+}
+
+/* Section projet de recherche */
+.project-box {
+    background-color: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.tech-box {
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 160px;
+}
+
+/* Style d'impression */
+@media print {
+    header, nav, footer, .cv-buttons {
+        display: none !important;
+    }
+    
+    body, html {
+        background-color: white !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .cv-container {
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    
+    .cv-section {
+        page-break-inside: avoid;
+    }
+}

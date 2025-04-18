@@ -1,0 +1,60 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Résultats de recherche - Portfolio{% endblock %}
+
+{% block content %}
+<section id="search-results">
+    <div class="container">
+        <h2>Résultats de recherche</h2>
+        
+        <div class="search-header">
+            <div style="background-color: var(--light-gray); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                <form action="{% url 'portfolio:search' %}" method="get" class="search-form">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" name="q" value="{{ query }}" placeholder="Rechercher..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <button type="submit" style="background-color: var(--primary-color); color: white; border: none; padding: 0 20px; border-radius: 4px; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            {% if query %}
+                <p>{{ count }} résultat{{ count|pluralize }} trouvé{{ count|pluralize }} pour <strong>"{{ query }}"</strong></p>
+            {% else %}
+                <p>Veuillez entrer un terme de recherche</p>
+            {% endif %}
+        </div>
+        
+        {% if results %}
+            <div class="results-list">
+                {% for result in results %}
+                    <div style="background-color: var(--white); padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                        <h3 style="margin-top: 0; color: var(--primary-color);">
+                            <a href="{% url result.url %}" style="text-decoration: none; color: inherit;">{{ result.title }}</a>
+                        </h3>
+                        <div style="margin-bottom: 10px;">
+                            <span style="background-color: var(--light-gray); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">
+                                {{ result.type|title }}
+                            </span>
+                        </div>
+                        <p style="margin-bottom: 10px;">{{ result.content }}</p>
+                        <a href="{% url result.url %}" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">
+                            Voir plus <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif query %}
+            <div style="text-align: center; padding: 50px 0;">
+                <div style="font-size: 4rem; margin-bottom: 20px; color: var(--light-gray);">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Aucun résultat trouvé</h3>
+                <p>Désolé, votre recherche n'a donné aucun résultat. Essayez avec d'autres termes ou consultez les sections principales du site.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

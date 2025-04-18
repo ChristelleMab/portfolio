@@ -1,0 +1,202 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Projets - Portfolio{% endblock %}
+
+{% block content %}
+<section id="projects-header">
+    <div class="container">
+        <h2>Mes Projets</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; text-align: justify;">
+            Mon parcours combinant expertise financière et intérêt pour l'analyse de données me permet de développer des projets qui apportent une réelle valeur ajoutée dans ces domaines. Voici une sélection de mes réalisations et projets en cours.
+        </p>
+    </div>
+</section>
+
+<section id="featured-project">
+    <div class="container">
+        <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary-color);">Projet Mémoire (MBA en Management de l'Intelligence Artificielle)</h3>
+        <div style="background-color: var(--white); border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 30px; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+                <div style="flex: 2; min-width: 300px;">
+                    <h3 style="color: var(--secondary-color); margin-bottom: 15px;">Conformité des factures grâce à l'Intelligence Artificielle</h3>
+                    <div style="margin-bottom: 15px;">
+                        <span style="background-color: var(--primary-color); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; margin-right: 10px;">IA</span>
+                        <span style="background-color: var(--secondary-color); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; margin-right: 10px;">Finance</span>
+                        <span style="background-color: var(--accent-color); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;">Automatisation</span>
+                    </div>
+                    <p style="text-align: justify; margin-bottom: 15px;">
+                        Ce projet de recherche explore l'application de l'intelligence artificielle pour automatiser et optimiser la vérification de la conformité des factures dans le contexte de l'expertise comptable.
+                    </p>
+                    <p style="text-align: justify; margin-bottom: 15px;">
+                        L'objectif est de développer un système capable d'analyser automatiquement les factures, d'extraire les informations pertinentes et de vérifier leur conformité aux normes comptables et fiscales en vigueur.
+                    </p>
+                    <div style="margin-top: 20px;">
+                        <h4 style="margin-bottom: 10px;">Flux de traitement et technologies utilisées:</h4>
+                        
+                        <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="min-width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                                    <div>
+                                        <strong>OCR</strong> (Tesseract/Google Vision) - Extraction du texte des documents
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="min-width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                                    <div>
+                                        <strong>NLP</strong> (spaCy/BERT) - Traitement du langage naturel pour l'extraction d'informations
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="min-width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                                    <div>
+                                        <strong>Classification ML</strong> (Random Forest/XGBoost) - Catégorisation des éléments de facture
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="min-width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                                    <div>
+                                        <strong>Détection d'anomalies</strong> (Isolation Forest/AE) - Identification des incohérences
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="min-width: 40px; height: 40px; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">5</div>
+                                    <div>
+                                        <strong>Vérification base de règles</strong> - Contrôle final de conformité aux réglementations
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tesseract OCR</span>
+                            <span class="tech-tag">Google Vision</span>
+                            <span class="tech-tag">spaCy</span>
+                            <span class="tech-tag">BERT</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">Isolation Forest</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 200px; background-color: var(--light-gray); border-radius: 8px; padding: 20px;">
+                    <h4 style="margin-bottom: 15px; text-align: center;">Avantages du système</h4>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: baseline; gap: 10px;">
+                            <span style="color: var(--primary-color); font-weight: bold;">→</span>
+                            <span>Automatisation de l'extraction de données</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: baseline; gap: 10px;">
+                            <span style="color: var(--primary-color); font-weight: bold;">→</span>
+                            <span>Vérification systématique de la conformité</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: baseline; gap: 10px;">
+                            <span style="color: var(--primary-color); font-weight: bold;">→</span>
+                            <span>Détection précise des anomalies</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: baseline; gap: 10px;">
+                            <span style="color: var(--primary-color); font-weight: bold;">→</span>
+                            <span>Réduction de 80% du temps de traitement</span>
+                        </li>
+                        <li style="display: flex; align-items: baseline; gap: 10px;">
+                            <span style="color: var(--primary-color); font-weight: bold;">→</span>
+                            <span>Amélioration continue par apprentissage</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="other-projects">
+    <div class="container">
+        <h3 style="text-align: center; margin: 50px 0 30px;">Autres Projets</h3>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">📊</div>
+                <div class="project-content">
+                    <h3 class="project-title">Application de Gestion avec IA</h3>
+                    <p>Développement d'une application intégrant l'intelligence artificielle pour optimiser les processus de gestion financière et comptable.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">IA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img">🏫</div>
+                <div class="project-content">
+                    <h3 class="project-title">Application de Gestion Scolaire</h3>
+                    <p>Système de gestion scolaire adapté aux besoins spécifiques des établissements d'enseignement, avec suivi des élèves, planning et gestion financière.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img">🏠</div>
+                <div class="project-content">
+                    <h3 class="project-title">Recherche de Logement Inclusif</h3>
+                    <p>Plateforme facilitant la recherche de logements à proximité d'écoles inclusives pour les familles ayant des enfants à besoins spécifiques.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">API Maps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="data-projects">
+    <div class="container">
+        <h3 style="text-align: center; margin: 50px 0 30px;">Projets d'analyse de données</h3>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
+            Dans le cadre de ma reconversion en Data Analyst, je développe plusieurs projets d'analyse qui me permettent d'appliquer mes nouvelles compétences tout en valorisant mon expertise financière.
+        </p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: var(--white); border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 25px;">
+                <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; text-align: center;">📈</div>
+                <h4 style="text-align: center; margin-bottom: 15px;">Analyse des tendances financières</h4>
+                <p style="text-align: justify; margin-bottom: 15px;">
+                    Projet d'analyse de données financières historiques pour identifier des tendances et des patterns à l'aide de techniques de data mining et de visualisation avancée.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 15px;">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">Excel</span>
+                </div>
+            </div>
+            
+            <div style="flex: 1; min-width: 300px; max-width: 500px; background-color: var(--white); border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 25px;">
+                <div style="font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; text-align: center;">📊</div>
+                <h4 style="text-align: center; margin-bottom: 15px;">Tableaux de bord Power BI</h4>
+                <p style="text-align: justify; margin-bottom: 15px;">
+                    Création de tableaux de bord interactifs pour le suivi des KPIs financiers, permettant une visualisation claire et en temps réel des performances d'entreprise.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 5px; margin-top: 15px;">
+                    <span class="tech-tag">Power BI</span>
+                    <span class="tech-tag">DAX</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Data Modeling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
