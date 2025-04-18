@@ -55,6 +55,22 @@ header {
     margin-bottom: 20px;
 }
 
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--white);
+    margin-bottom: 20px;
+    background-color: var(--light-gray);
+    /* Vous pouvez supprimer ces propriétés qui ne s'appliquent qu'au div, pas à l'img */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
 .logo-circle {
     width: 100px;
     height: 100px;
