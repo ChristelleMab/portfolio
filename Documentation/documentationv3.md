@@ -151,6 +151,7 @@ urlpatterns = [
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('search/', views.search_view, name='search'),
 ]
+
 4. Fonctionnalités Principales
 4.1 Bannière Professionnelle
 
@@ -230,6 +231,7 @@ heroku run python manage.py migrate
 
 # Collecter les fichiers statiques si modifiés
 heroku run python manage.py collectstatic
+
 6.2 Évolutions Futures Prévues
 
 Intégration d'un système d'authentification
