@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block content %}
-<section id="hero">
+<section id="hero" style="padding: 40px 0;"> <!-- Réduction du padding -->
     <div class="container">
-        <div style="text-align: center; padding: 40px 0;">
+        <div>
             <h2>Bienvenue sur mon portfolio</h2>
-            <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
-                Forte de 10 ans d'expérience, actuellement en reconversion vers l'analyse de données.
-                Je combine mon expertise comptable avec ma formation en Data Science et Intelligence Artificielle
-                pour apporter une valeur ajoutée unique dans l'interprétation des données financières.
+            <p style="text-align: center; max-width: 800px; margin: 15px auto; font-size: 1.1rem;"> <!-- Réduction de la marge -->
+                Forte de 12 ans d'expérience en expertise comptable, je suis actuellement en reconversion vers l'analyse de données.
+                Je combine mon expertise métier avec une formation en Data Science et Intelligence Artificielle, afin d'apporter une valeur ajoutée unique dans l'interprétation des données financières.
+                Je recherche une alternance en Data Analysis pour consolider mes compétences techniques tout en mettant ma vision métier au service de projets concrets.
             </p>
-            <div style="margin-top: 30px;">
+            <div style="text-align: center; margin-top: 20px;"> <!-- Réduction de la marge -->
                 <a href="{% url 'portfolio:about' %}" class="btn">En savoir plus</a>
                 <a href="{% url 'portfolio:cv' %}" class="btn" style="margin-left: 10px; background-color: var(--secondary-color);">Voir mon CV</a>
             </div>
@@ -19,87 +19,69 @@
     </div>
 </section>
 
-<section id="skills-overview">
+<section id="skills-overview" style="padding: 30px 0;"> <!-- Ajout d'un padding réduit -->
     <div class="container">
-        <h2>Mes compétences</h2>
+        <h2 style="margin-bottom: 20px;">Mes compétences</h2> <!-- Réduction de la marge -->
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <div style="flex: 1; min-width: 250px; background-color: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Data & Analyse</h3>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Compétences en développement - Data & Analyse</h3>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✓ Excel Avancé</li>
-                    <li style="margin-bottom: 10px;">✓ Analyse de Données</li>
-                    <li style="margin-bottom: 10px;">✓ Python (en formation)</li>
-                    <li style="margin-bottom: 10px;">✓ SQL (notions)</li>
-                    <li style="margin-bottom: 10px;">✓ Data Visualization</li>
+                    <li style="margin-bottom: 10px;">✓ Excel (fonctions avancées, TCD)</li>
+                    <li style="margin-bottom: 10px;">✓ Notions de Python (Pandas, Numpy)</li>
+                    <li style="margin-bottom: 10px;">✓ Bases de SQL</li>
+                    <li style="margin-bottom: 10px;">✓ Visualisation de données : initiation à Power BI & Tableau</li>
                 </ul>
             </div>
             <div style="flex: 1; min-width: 250px; background-color: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Finance & Expertise</h3>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Expertise Financière applicable à la Data</h3>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✓ Expertise comptable</li>
-                    <li style="margin-bottom: 10px;">✓ Audit financier</li>
-                    <li style="margin-bottom: 10px;">✓ Contrôle de Gestion</li>
-                    <li style="margin-bottom: 10px;">✓ Analyse financière</li>
-                    <li style="margin-bottom: 10px;">✓ Fiscalité</li>
+                    <li style="margin-bottom: 10px;">✓ Analyse et interprétation de données</li>
+                    <li style="margin-bottom: 10px;">✓ Identification des indicateurs (KPIs)</li>
+                    <li style="margin-bottom: 10px;">✓ Rigueur dans le traitement des données</li>
+                    <li style="margin-bottom: 10px;">✓ Communication claire des résultats </li>
+                    <li style="margin-bottom: 10px;">✓ Compréhension fine des enjeux (business et métiers)</li>
                 </ul>
             </div>
             <div style="flex: 1; min-width: 250px; background-color: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                 <h3 style="color: var(--primary-color); margin-bottom: 15px;">IA & Transversales</h3>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;">✓ Notions d'Intelligence Artificielle</li>
-                    <li style="margin-bottom: 10px;">✓ Gestion de projet</li>
-                    <li style="margin-bottom: 10px;">✓ Auto-formation</li>
-                    <li style="margin-bottom: 10px;">✓ Management d'équipe</li>
-                    <li style="margin-bottom: 10px;">✓ Résolution de problèmes</li>
+                    <li style="margin-bottom: 10px;">✓ Introduction à l'intelligence artificielle  </li>
+                    <li style="margin-bottom: 10px;">✓ Gestion de projet agile avec composante IA    </li>
+                    <li style="margin-bottom: 10px;">✓ Management d'équipe et coordination  </li>
+                    <li style="margin-bottom: 10px;">✓ Résolution de problèmes complexes (logique & terrain)</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<section id="featured-projects">
+<section id="featured-projects" style="padding: 30px 0;"> <!-- Ajout d'un padding réduit -->
     <div class="container">
-        <h2>Projets à la une</h2>
+        <h2 style="margin-bottom: 20px;">Projets en cours</h2>
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-img">📊</div>
                 <div class="project-content">
-                    <h3 class="project-title">Application de Gestion avec IA</h3>
-                    <p>Solution SaaS de comptabilité automatisée intégrant IA, conformité fiscale et saisie intelligente des écritures.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">IA</span>
-                    </div>
+                    <h3 class="project-title">NormX-IA – Application de Gestion Intelligente</h3>
+                    <p>Solution SaaS de gestion des processus financiers automatisée intégrant l'IA.</p>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-img">🏫</div>
                 <div class="project-content">
-                    <h3 class="project-title">Application de Gestion Scolaire</h3>
-                    <p>Système de gestion scolaire adapté aux besoins spécifiques des établissements d'enseignement.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Django</span>
-                    </div>
+                    <h3 class="project-title">EduSync – Application de Gestion Scolaire</h3>
+                    <p>plateforme de gestion scolaire augmentée par l'IA pour les écoles.</p>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-img">🏠</div>
                 <div class="project-content">
                     <h3 class="project-title">Recherche de Logement Inclusif</h3>
-                    <p>Plateforme de recherche de logements à proximité d'écoles inclusives pour les familles ayant des enfants à besoins spécifiques.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">API Maps</span>
-                    </div>
+                    <p>Plateforme de recherche de logements à proximité d'écoles inclusives.</p>
                 </div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
+        <div style="text-align: center; margin-top: 20px;">
             <a href="{% url 'portfolio:projects' %}" class="btn">Voir tous les projets</a>
         </div>
     </div>

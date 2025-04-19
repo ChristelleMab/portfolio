@@ -32,110 +32,139 @@ body {
     padding: 0 20px;
 }
 
-/* En-tête */
-header {
+/* En-tête avec bannière */
+.banner-header {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     color: var(--white);
-    padding: 60px 0 40px;
-    position: relative;
+    padding: 40px 0 0 0; /* Pas de padding en bas pour intégrer la barre de contact */
 }
 
-.profile-container {
+.banner-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.banner-content-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    min-height: 250px; /* Hauteur minimale pour garder une bonne proportion */
+    padding: 20px 0;
+}
+
+.banner-content {
+    flex: 1;
+    padding-right: 40px; /* Espace pour la photo */
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.banner-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.highlight-search {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    display: block;
+}
+
+.banner-profile-container {
+    flex-shrink: 0;
+    width: 150px; /* Largeur fixe pour le conteneur */
+    height: 150px; /* Hauteur fixe pour le conteneur */
+    margin-left: 20px;
+}
+
+.banner-profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Barre de contact pleine largeur */
+.banner-contact-bar {
+    background: rgba(0, 0, 0, 0.1); /* Légèrement plus foncé pour distinction */
+    width: 100%;
+    padding: 15px 0;
     text-align: center;
 }
 
-/* Logo style */
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--white);
-    margin-bottom: 20px;
-    background-color: var(--light-gray);
-    /* Vous pouvez supprimer ces propriétés qui ne s'appliquent qu'au div, pas à l'img */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
-    color: var(--primary-color);
-}
-
-.logo-circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: var(--teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--white);
-    margin-bottom: 10px;
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--white);
-}
-
-.profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--white);
-    margin-bottom: 20px;
-    background-color: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 80px;
-    color: var(--primary-color);
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.tagline {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    margin-bottom: 20px;
-}
-
-.contact-info {
+.banner-contact-bar .contact-info {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1200px;
 }
 
-.contact-info a {
+.banner-contact-bar .contact-info a {
     color: var(--white);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
+    opacity: 0.9;
+    white-space: nowrap;
 }
 
-.contact-info a:hover {
-    color: var(--light-gray);
+.banner-contact-bar .contact-info a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Responsive pour mobile */
+@media screen and (max-width: 768px) {
+    .banner-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    .banner-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .banner-profile-container {
+        margin-left: 0;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .banner-contact-bar .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 /* Navigation */
@@ -153,7 +182,12 @@ nav {
     align-items: center;
     list-style: none;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Important: empêche le retour à la ligne */
+}
+
+.nav-links > li {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -166,6 +200,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap; /* Empêche le retour à la ligne du texte */
 }
 
 .nav-links a i {
@@ -178,7 +213,9 @@ nav {
 
 /* Zone de recherche */
 .search-container {
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Ajoute un peu d'espace avant la recherche */
 }
 
 .search-container form {
@@ -192,6 +229,8 @@ nav {
     border-radius: 20px 0 0 20px;
     font-size: 14px;
     outline: none;
+    width: 150px; /* Largeur réduite pour s'adapter à la barre */
+    height: 36px; /* Hauteur fixe pour aligner avec les autres éléments */
 }
 
 .search-container button {
@@ -200,15 +239,74 @@ nav {
     padding: 8px 12px;
     border-radius: 0 20px 20px 0;
     cursor: pointer;
+    height: 36px; /* Même hauteur que l'input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-container button i {
     color: var(--secondary-color);
 }
 
+/* Ajustements pour les écrans plus larges */
+@media screen and (min-width: 1200px) {
+    .nav-links {
+        gap: 30px;
+    }
+    
+    .search-container input[type="text"] {
+        width: 200px; /* Plus large sur grands écrans */
+    }
+}
+
+/* Responsive pour tablettes */
+@media screen and (max-width: 992px) {
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-links a {
+        padding: 8px 10px;
+    }
+    
+    .search-container input[type="text"] {
+        width: 140px;
+    }
+}
+
+/* Responsive pour mobile */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .nav-links li {
+        margin: 5px 0;
+    }
+    
+    .search-container {
+        width: 100%;
+        margin: 10px 0 0 0;
+        justify-content: center;
+    }
+    
+    .search-container form {
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .search-container input[type="text"] {
+        width: 100%;
+    }
+}
+
 /* Sections */
 section {
-    padding: 60px 0;
+    padding: 30px 0;
     border-bottom: 1px solid var(--light-gray);
 }
 
@@ -218,7 +316,7 @@ section:last-child {
 
 h2 {
     color: var(--secondary-color);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 2rem;
     position: relative;
     padding-bottom: 10px;
@@ -328,13 +426,12 @@ h2::after {
 }
 
 .timeline-content {
-    padding: 30px; /* Augmenté de 20px à 30px */
+    padding: 30px;
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-    /* Augmenter la largeur maximale */
-    max-width: 90%; /* Vous pouvez ajuster cette valeur */
-    margin: 0 auto; /* Pour centrer dans l'espace disponible */
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .timeline-date {
@@ -345,11 +442,10 @@ h2::after {
 
 .timeline-title {
     font-weight: 600;
-    margin-bottom: 15px; /* Augmenté pour plus d'espace */
-    font-size: 1.3rem; /* Légèrement plus grand */
+    margin-bottom: 15px;
+    font-size: 1.3rem;
 }
 
-/* Ajustement pour les éléments de liste dans la timeline */
 .timeline-content ul {
     margin-top: 10px;
 }
@@ -449,6 +545,8 @@ h2::after {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 10px;
 }
 
 .btn:hover {
@@ -497,19 +595,66 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/* Ajustements pour les écrans plus larges */
+@media screen and (min-width: 1200px) {
+    .nav-links {
+        gap: 30px;
+    }
+    
+    .search-container input[type="text"] {
+        width: 200px; /* Plus large sur grands écrans */
+    }
+}
+
+/* Responsive pour tablettes */
+@media screen and (max-width: 992px) {
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-links a {
+        padding: 8px 10px;
+    }
+    
+    .search-container input[type="text"] {
+        width: 140px;
+    }
+}
+
+/* Responsive pour mobile */
 @media screen and (max-width: 768px) {
-    .profile-img, .logo-circle {
+    .banner-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .banner-content {
+        padding-right: 0;
+    }
+    
+    .banner-profile-container {
+        position: static;
+        margin: 0 auto 20px auto;
+        text-align: center;
+    }
+    
+    .banner-profile-img {
         width: 150px;
         height: 150px;
     }
     
-    h1 {
+    .banner-content h1 {
         font-size: 2rem;
     }
     
-    .tagline {
-        font-size: 1rem;
+    .banner-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .banner-contact-bar .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
     
     .about-content {
@@ -539,18 +684,25 @@ footer {
     }
     
     .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .nav-links li {
+        margin: 5px 0;
     }
     
     .search-container {
-        margin-left: 0;
         width: 100%;
-        margin-top: 10px;
+        margin: 10px 0 0 0;
+        justify-content: center;
     }
     
     .search-container form {
-        width: 100%;
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
     }
     
     .search-container input[type="text"] {

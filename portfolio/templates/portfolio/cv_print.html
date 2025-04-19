@@ -7,10 +7,10 @@
   <title>CV - Christelle Mabika</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/cv-print-styles.css' %}">
   <style>
     /* Styles spécifiques pour l'impression */
-    .print-message {
+    .cv-print-message {
       text-align: center;
       padding: 10px;
       background-color: #f5f5f5;
@@ -19,9 +19,9 @@
       border: 1px solid #ddd;
     }
     
-    .print-message button {
+    .cv-print-message button {
       padding: 8px 15px;
-      background-color: var(--secondary-color);
+      background-color: var(--cv-secondary-color);
       color: white;
       border: none;
       border-radius: 4px;
@@ -31,34 +31,34 @@
     }
     
     @media print {
-      .print-message, .print-button {
+      .cv-print-message, .cv-print-button {
         display: none !important;
       }
     }
   </style>
 </head>
-<body>
+<body class="cv-body">
   <!-- Message d'impression - uniquement visible à l'écran -->
-  <div class="print-message no-print">
+  <div class="cv-print-message no-print">
     <p>Version imprimable de votre CV. Utilisez les boutons ci-dessous ou les options de votre navigateur pour imprimer ou sauvegarder en PDF.</p>
     <button onclick="window.print()"><i class='bx bx-printer'></i> Imprimer le CV</button>
     <button onclick="window.print()"><i class='bx bx-save'></i> Sauvegarder en PDF</button>
   </div>
 
-  <div class="container">
+  <div class="cv-container">
     <!-- En-tête avec photo -->
-    <header>
+    <header class="cv-header">
       <!-- Photo -->
-      <div class="photo-container">
-        <img src="{% static 'img/photo.jpg' %}" alt="Photo Christelle Mabika" />
+      <div class="cv-photo-container">
+        <img src="{% static 'img/profile.jpg' %}" alt="Photo Christelle Mabika" />
         <h2>Christelle MABIKA</h2>
       </div>
       
-      <div class="header-content">
+      <div class="cv-header-content">
         <!-- Titre du CV -->
-        <div class="title">
+        <div class="cv-title">
           <h1>Manager finance en reconversion professionnelle| Recherche d'alternance Data Analyt</h1>
-          <p class="subtitle">Triple MBA : Big Data, IA & Audit – DSCG en cours</p>
+          <p class="cv-subtitle">Triple MBA : Big Data, IA & Audit – DSCG en cours</p>
           <p>10 ans d'expérience en cabinet d'expertise comptable & audit - Anglais opérationnel</p>
           <p>Autonome, rigoureuse, polyvalente, analytique, innovante</p>
           <p><strong>Disponible pour une alternance dès octobre 2025</strong></p>
@@ -67,13 +67,13 @@
     </header>
     
     <!-- Contenu principal avec deux colonnes -->
-    <div class="main-content">
+    <div class="cv-main-content">
       <!-- Colonne de gauche -->
-      <div class="left-column">
+      <div class="cv-left-column">
         <!-- CONTACTS -->
-        <section class="contacts">
+        <section class="cv-contacts">
           <h2><i class='bx bxs-contact'></i> Contacts</h2>
-          <div class="contacts-horizontal">
+          <div class="cv-contacts-horizontal">
             <p><i class='bx bx-envelope'></i> <a href="mailto:christell.mabika@gmail.com">christell.mabika@gmail.com</a></p>
             <p><i class='bx bx-phone'></i> <a href="tel:+33620769424">+33 6 20 76 94 24</a></p>
             <p><i class='bx bx-map'></i><a href="https://maps.google.com/?q=65+rue+Maurice+Berteaux,+95870+Bezons,+France" target="_blank" rel="noopener noreferrer"></i> 65 rue Maurice Berteaux, 95870 Bezons</a></p>
@@ -83,7 +83,7 @@
         </section>
         
         <!-- COMPÉTENCES -->
-        <section class="competences">
+        <section class="cv-competences">
           <h2><i class='bx bxs-cog'></i> Compétences</h2>
           
           <h3>Compétences linguistiques</h3>
@@ -94,21 +94,21 @@
           
           <h3>Compétences digitales</h3>
           <div>
-            <span class="competence-badge">Python</span>
-            <span class="competence-badge">SQL</span>
-            <span class="competence-badge">Excel avancé</span>
-            <span class="competence-badge">Power BI</span>
-            <span class="competence-badge">Machine Learning</span>
-            <span class="competence-badge">Visualisation de données</span>
+            <ul>
+              <li>Excel (fonctions avancées, TCD)</li>
+              <li>Initiation à Python et aux bibliothèques</li>
+              <li>Bases de SQL</li>
+              <li>Découverte des outils de visualisation</li>
+            </ul>
           </div>
 
-          <h3>Expertise confirmée</h3>
+          <h3>Expertise Financière - Data</h3>
           <div>
             <ul>
-              <li>Expertise Comptable & Fiscalité</li>
-              <li>Contrôle de Gestion & Audit Financier</li>
-              <li>Analyse Financière</li>
-              <li>Management & gestion de projet</li>
+              <li>Analyse et interprétation de données</li>
+              <li>Identification des indicateurs clés (KPIs)</li>
+              <li>Rigueur dans le traitement et la vérification des données</li>
+              <li>Communication des résultats d'analyse</li>
             </ul>
           </div>
           
@@ -121,29 +121,29 @@
         </section>
         
         <!-- PROJETS PERSONNELS -->
-        <section>
+        <section class="cv-projets">
           <h2><i class='bx bx-bulb'></i> Projets en cours</h2>
-          <div class="project">
+          <div class="cv-project">
             <p><strong>NormX IA</strong> - Solution SaaS intelligente pour l'automatisation des processus.</p>
           </div>
-          <div class="project">
+          <div class="cv-project">
             <p><strong>EduSync</strong> - Plateforme de gestion scolaire intelligente.</p>
           </div>
         </section>
         
         <!-- FORMATIONS COMPLÉMENTAIRES & CERTIFICATIONS -->
-        <section>
+        <section class="cv-certifications">
           <h2><i class='bx bx-certification'></i> Formations complémentaires</h2>
           <ul>
             <li><strong>100 Days of code : Python Pro </strong></li>
             <li><strong>Devenir expert SQL</strong></li>
             <li><strong>Devenir un expert de Power BI</strong></li>
           </ul>
-          <p><span class="skill-badge">Autoformation continue</span> via Udemy</p>
+          <p><span class="cv-competence-badge">Autoformation continue</span> via Udemy</p>
         </section>
         
         <!-- CENTRES D'INTÉRÊT -->
-        <section>
+        <section class="cv-interets">
           <h2><i class='bx bxs-heart'></i> Centres d'intérêt</h2>
           <ul>
             <li>Auto-formation</li>
@@ -153,13 +153,13 @@
       </div>
       
       <!-- Colonne de droite -->
-      <div class="right-column">
+      <div class="cv-right-column">
         <!-- FORMATION -->
-        <section class="formation">
+        <section class="cv-formation">
           <h2><i class='bx bxs-graduation'></i> Formation</h2>
           
           <div>
-            <p>2025 - 2026</p>
+            <p>2025 - 2027</p>
             <div>
               <p><strong>MBA Big Data & Intelligence Artificielle</strong></p>
               <p><em>MBA ESG - Paris - Bac + 5 (formation classée SMBG). Groupe ESG</em></p>
@@ -172,7 +172,7 @@
             <div>
               <p><strong>MBA Management de l'Intelligence Artificielle</strong></p>
               <p><em>DeVinci Executive Education - Certification RNCP Niveau 7 (n°38590)</em></p>
-              <p><strong>Principales matières :</strong> Construire et gérer un projet d’IA, Methodes Agiles, IA generatives, Digital factory, Python, Au coeur de la Data, CyberSécurité/CyberDéfense.</p>
+              <p><strong>Principales matières :</strong> Construire et gérer un projet d'IA, Methodes Agiles, IA generatives, Digital factory, Python, Au coeur de la Data, CyberSécurité/CyberDéfense.</p>
             </div>
           </div>
           
@@ -187,7 +187,7 @@
           
           <div>
             <p>En cours</p>
-            <div class="dscg">
+            <div class="cv-dscg">
               <p><strong> DSCG (Diplôme Supérieur de Comptabilité et de Gestion)</strong></p>
               <p><em>Candidat libre</em></p>
               <p><strong>Unités d'enseignements :</strong><br>
@@ -209,7 +209,7 @@
         </section>
         
         <!-- EXPÉRIENCE PROFESSIONNELLE -->
-        <section class="experience">
+        <section class="cv-experience">
           <h2><i class='bx bxs-briefcase'></i> Expérience Professionnelle</h2>
           
           <div>
@@ -277,7 +277,7 @@
       var printButton = document.createElement('button');
       printButton.innerHTML = '<i class="bx bx-printer"></i>';
       printButton.onclick = function() { window.print(); };
-      printButton.className = 'print-button no-print';
+      printButton.className = 'cv-print-button no-print';
       
       document.body.appendChild(printButton);
     });

@@ -20,21 +20,29 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <header>
+    <header class="banner-header">
         <div class="container">
-            <div class="profile-container">
-                <!-- Logo personnalisé -->
-                <div class="logo">
-                    <img src="{% static 'img/profile.jpg' %}" alt="Christelle MABIKA" class="profile-img">
+            <div class="banner-content-wrapper">
+                <div class="banner-content">
+                    <h1>CHRISTELLE MABIKA</h1>
+                    <h2>Manager Finance en reconversion vers le métier de Data Analyst</h2>
+                    <p class="subtitle">Profil Finance - Audit • 12 ans d'expérience • Formation Big Data & IA</p>
+                    <p class="highlight-search">🔍 À la recherche d'une alternance 12 ou 24 mois dès octobre 2025</p>
                 </div>
-                <h1>Christelle MABIKA</h1>
-                <p class="tagline">Manager finance en reconversion professionnelle</p>
-                <div class="contact-info">
-                    <a href="mailto:christell.mabika@gmail.com">📧 christell.mabika@gmail.com</a>
-                    <a href="tel:+33620769424">📱 06 20 76 94 24</a>
-                    <a href="https://www.linkedin.com/in/christelle-mabika/" target="_blank">🔗 linkedin.com/in/christelle-mabika</a>
-                    <a href="https://christelle-portfolio-18d9b9c91344.herokuapp.com/" target="_blank">🔗 christelle-portfolio.herokuapp.com</a>
+                
+                <div class="banner-profile-container">
+                    <img src="{% static 'img/profile.jpg' %}" alt="Christelle MABIKA" class="banner-profile-img">
                 </div>
+            </div>
+        </div>
+        
+        <!-- Barre de contact intégrée dans le header -->
+        <div class="banner-contact-bar">
+            <div class="contact-info">
+                <a href="mailto:christell.mabika@gmail.com">📧 christell.mabika@gmail.com</a>
+                <a href="tel:+33620769424">📱 06 20 76 94 24</a>
+                <a href="https://www.linkedin.com/in/christelle-mabika/" target="_blank">🔗 linkedin.com/in/christelle-mabika</a>
+                <a href="https://christelle-portfolio-18d9b9c91344.herokuapp.com/" target="_blank">🔗 christelle-portfolio.herokuapp.com</a>
             </div>
         </div>
     </header>
