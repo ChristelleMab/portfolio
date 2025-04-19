@@ -75,46 +75,35 @@ def search_view(request):
         sections = [
             {
                 'title': 'À propos',
-                'content': 'Forte de 10 ans d\'expérience en cabinet d\'expertise comptable, actuellement en reconversion vers l\'analyse de données. Combinaison d\'expertise financière et compétences en data analysis.',
+                'content': 'Manager finance en reconversion vers la Data Science, combinant expertise métier et compétences techniques.',
                 'url': 'portfolio:about',
-                'type': 'page'
+                'type': 'page',
+                'keywords': ['à propos', 'about', 'profil', 'reconversion', 'data']
             },
             {
-                'title': 'Expérience',
+                'title': 'Expérience Professionnelle',
                 'content': 'Manager Conseil Comptable chez Deloitte, Senior Conseil chez Advisory (BDO), Superviseur Audit & Comptabilité chez Horizons Conseils. Expertise en audit, comptabilité, fiscalité et analyse financière.',
                 'url': 'portfolio:experience',
-                'type': 'page'
+                'type': 'page',
+                'keywords': ['expérience', 'expertise', 'comptable', 'finance', 'manager', 'professionnel']
             },
             {
                 'title': 'Formation',
                 'content': 'MBA Big Data & IA, MBA Management de l\'IA, MBA Expert Contrôle de Gestion & Audit, DSCG, Master en Finance.',
                 'url': 'portfolio:education',
-                'type': 'page'
+                'type': 'page',
+                'keywords': ['formation', 'éducation', 'big data', 'intelligence artificielle', 'MBA', 'audit', 'controle de gestion']
             },
+
             {
-                'title': 'Application de Gestion avec IA',
-                'content': 'Application intégrant l\'intelligence artificielle pour optimiser les processus de gestion financière et comptable.',
+                'title': 'Projets',
+                'type': 'page',
                 'url': 'portfolio:projects',
-                'type': 'projet'
+                'content': 'Projets de data analyse et développement d\'applications intelligentes.',
+                'keywords': ['projets', 'projects', 'data', 'analyse', 'applications', 'normx', 'edusync']
             },
-            {
-                'title': 'Application de Gestion Scolaire',
-                'content': 'Système de gestion scolaire adapté aux besoins spécifiques des établissements d\'enseignement.',
-                'url': 'portfolio:projects',
-                'type': 'projet'
-            },
-            {
-                'title': 'Recherche de Logement Inclusif',
-                'content': 'Plateforme facilitant la recherche de logements à proximité d\'écoles inclusives pour les familles ayant des enfants à besoins spécifiques.',
-                'url': 'portfolio:projects',
-                'type': 'projet'
-            },
-            {
-                'title': 'Conformité des factures grâce à l\'Intelligence Artificielle',
-                'content': 'Projet de mémoire explorant l\'application de l\'intelligence artificielle pour automatiser la vérification de la conformité des factures. Utilise OCR, NLP, Classification ML et détection d\'anomalies.',
-                'url': 'portfolio:projects',
-                'type': 'projet de recherche'
-            },
+
+            
             {
                 'title': 'CV',
                 'content': 'Curriculum Vitae détaillant mon parcours professionnel, ma formation et mes compétences en finance et data analysis.',
@@ -126,17 +115,72 @@ def search_view(request):
                 'content': 'Formulaire de contact pour me joindre concernant des opportunités d\'alternance en Data Analysis ou des collaborations.',
                 'url': 'portfolio:contact',
                 'type': 'page'
-            }
+            },
+
+            # Ajouter des projets spécifiques
+            {
+                'title': 'NormX-IA – Application de Gestion Intelligente',
+                'type': 'projet',
+                'url': 'portfolio:projects',
+                'content': 'Solution SaaS de gestion des processus financiers automatisée intégrant l\'IA.',
+                'keywords': ['normx', 'intelligence artificielle', 'gestion', 'saas', 'finance']
+            },
+            {
+                'title': 'EduSync – Application de Gestion Scolaire',
+                'type': 'projet',
+                'url': 'portfolio:projects',
+                'content': 'Plateforme de gestion scolaire augmentée par l\'IA pour les écoles.',
+                'keywords': ['edusync', 'education', 'gestion scolaire', 'ia', 'école']
+            },
+            {
+                'title': 'Recherche de Logement Inclusif',
+                'type': 'projet',
+                'url': 'portfolio:projects',
+                'content': 'Plateforme de recherche de logements à proximité d\'écoles inclusives.',
+                'keywords': ['logement', 'inclusif', 'école', 'recherche']
+            },
+            {
+                'title': 'Conformité des factures grâce à l\'Intelligence Artificielle',
+                'content': 'Projet de mémoire explorant l\'application de l\'intelligence artificielle pour automatiser la vérification de la conformité des factures. Utilise OCR, NLP, Classification ML et détection d\'anomalies.',
+                'url': 'portfolio:projects',
+                'type': 'projet de recherche'
+            },
         ]
         
-        # Rechercher le terme dans les sections
-        query_lower = query.lower()
-        for section in sections:
-            if query_lower in section['title'].lower() or query_lower in section['content'].lower():
-                results.append(section)
+         # Recherche sur les titres, contenus et mots-clés
+        for item in sections:  # Utiliser 'sections' au lieu de 'searchable_content'
+            # Convertir la requête et les champs en minuscules pour une recherche insensible à la casse
+            query_lower = query.lower()
+            title_lower = item['title'].lower()
+            content_lower = item['content'].lower()
+            
+            # Vérifier si la requête est présente dans le titre, le contenu ou les mots-clés
+            if (query_lower in title_lower or 
+                query_lower in content_lower or 
+                any(query_lower in keyword.lower() for keyword in item.get('keywords', []))):
+                results.append(item)
+                
+        # Recherche spécifique pour certains termes courants
+        if query_lower in ['projets', 'projects', 'projet', 'project']:
+            # Ajouter directement la page projets si pas déjà présente
+            if not any(result['url'] == 'portfolio:projects' for result in results):
+                for idx, section in enumerate(sections):
+                    if section['url'] == 'portfolio:projects' and section['type'] == 'page':
+                        results.insert(0, section)
+                        break
+        
+        if query_lower in ['experience', 'expérience', 'experiences', 'expériences']:
+            # Ajouter directement la page expérience si pas déjà présente
+            if not any(result['url'] == 'portfolio:experience' for result in results):
+                for idx, section in enumerate(sections):
+                    if section['url'] == 'portfolio:experience':
+                        results.insert(0, section)
+                        break
     
-    return render(request, 'portfolio/search_results.html', {
+    context = {
         'query': query,
         'results': results,
         'count': len(results)
-    })
+    }
+    
+    return render(request, 'portfolio/search_results.html', context)
