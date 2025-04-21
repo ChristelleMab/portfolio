@@ -114,9 +114,14 @@ USE_I18N = True
 USE_TZ = True
 
 # Configuration des emails (pour le formulaire de contact)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'noreply@example.com'
-CONTACT_EMAIL = 'contact@example.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'christell.mabika@gmail.com'  # Votre adresse Gmail
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = 'christell.mabika@gmail.com'
+CONTACT_EMAIL = 'christell.mabika@gmail.com'  # Adresse où vous voulez recevoir les messages
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
